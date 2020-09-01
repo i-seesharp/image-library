@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Upload Image</title>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h3>Upload Image to the <%= id %> library.</h3>
+            <% if (typeof(msg) != "undefined"){ %>
+                <p><b><%= msg %></b></p>
+            <% } %>
+            <br />
+            <br />
+            <form action="/<%= id %>/upload" method="POST" enctype="multipart/form-data">
+                <div class="file-field input-field">
+                  <div class="btn grey">
+                    <span>Click Me To Select File</span>
+                    <input name="myImage" type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                      <input type="text" name="memText" placeholder="One Sentence Caption" id="caption">
+                      <label for="email">One Sentence Caption</label>
+                    </div>
+                  </div>
+                <button type="submit" class="btn black">Submit</button>
+            </form>
+        </div>
+        
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+
+</html>

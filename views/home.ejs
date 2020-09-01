@@ -37,13 +37,13 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a href="./index.html" class="navbar-brand">Mashup Template</a>
+    <a href="/<%= userName %>" class="navbar-brand">Mashup Template</a>
   </div>
 
   <nav class="sidebar">
     <div class="navbar-collapse" id="navbar-collapse">
       <div class="site-header hidden-xs">
-          <a class="site-brand" href="./index.html" title="">
+          <a class="site-brand" href="/<%= userName %>" title="">
             <img class="img-responsive site-logo" alt="" src="assets/images/mashup-logo.svg">
             <%= userName %>'s Library
           </a>
@@ -53,6 +53,7 @@
         <li><a href="/<%= userName %>" title="">Home</a></li>
         <li><a href="/about" title="">About</a></li>
         <li><a href="/<%= userName %>/upload" title="">Upload Image</a></li>
+        <li><a href="/logout">Sign Out</a></li>
 
       </ul>
 
@@ -79,111 +80,25 @@
  
 <div class="hero-full-wrapper">
   <div class="gallery">
-    <div class="grid-item">
-      <img class="img-responsive" alt="" src="assets/images/img-12.jpg">
-      <a href="./project.html" class="project-description">
-        <div class="project-text-holder">
-          <div class="project-text-inner">
-            <h3>Vivamus vestibulum</h3>
-            <p>Discover more</p>
-          </div>
-        </div>
-      </a>
-    </div>
 
-    
-    <div class="grid-item">
-      <img class="img-responsive" alt="" src="assets/images/trial-img.jpg">
-      <a href="./project.html" class="project-description">
-        <div class="project-text-holder">
-          <div class="project-text-inner">
-            <h3>Vivamus vestibulum</h3>
-            <p>Discover more</p>
-          </div>
-        </div>
-      </a>
-    </div>
+    <% for (var i=0; i < imgArray.length; i++){ %>
 
-    <div class="grid-item">
-      <img class="img-responsive" alt="" src="assets/images/img-13.jpg">
-      <a href="./project.html" class="project-description">
-        <div class="project-text-holder">
-          <div class="project-text-inner">
-            <h3>Vivamus vestibulum</h3>
-            <p>Discover more</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="grid-item">
-      <img class="img-responsive" alt="" src="assets/images/img-04.jpg">
-      <a href="./project.html" class="project-description">
-        <div class="project-text-holder">
-          <div class="project-text-inner">
-            <h3>Vivamus vestibulum</h3>
-            <p>Discover more</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    
-    <div class="grid-item">
-      <img class="img-responsive" alt="" src="assets/images/img-07.jpg">
-      <a href="./project.html" class="project-description">
-        <div class="project-text-holder">
-          <div class="project-text-inner">
-            <h3>Vivamus vestibulum</h3>
-            <p>Discover more</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="grid-item">
-      <img class="img-responsive" alt="" src="assets/images/img-11.jpg">
-      <a href="./project.html" class="project-description">
-        <div class="project-text-holder">
-          <div class="project-text-inner">
-            <h3>Vivamus vestibulum</h3>
-            <p>Discover more</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="grid-item">
-      <img class="img-responsive" alt="" src="assets/images/img-10.jpg">
-      <a href="./project.html" class="project-description">
-        <div class="project-text-holder">
-          <div class="project-text-inner">
-            <h3>Vivamus vestibulum</h3>
-            <p>Discover more</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="grid-item">
-      <img class="img-responsive" alt="" src="assets/images/img-03.jpg">
-      <a href="./project.html" class="project-description">
-        <div class="project-text-holder">
-          <div class="project-text-inner">
-            <h3>Vivamus vestibulum</h3>
-            <p>Discover more</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="grid-item">
-        <img class="img-responsive" alt="" src="assets/images/starr.jpg">
-        <a href="./project.html" class="project-description">
+      <div class="grid-item">
+        <img class="img-responsive" alt="" src="assets/images/<%= imgArray[i].imgUrl %>">
+        <a href="/<%= userName %>" class="project-description">
           <div class="project-text-holder">
             <div class="project-text-inner">
-              <h3>Vivamus vestibulum</h3>
-              <p>Discover more</p>
+              <h4><%= imgArray[i].memoryName %></h4>
             </div>
           </div>
         </a>
       </div>
+
+    <% } %>
+    <% if(imgArray.length === 0) { %>
+      <h3>No images to show.</h3>
+    <% } %>
+    
 </div>
 
 
@@ -215,6 +130,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
   ga('send', 'pageview');
 </script>
 
---><script type="text/javascript" src="./main.85741bff.js"></script></body>
+--></body>
 
 </html>
